@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="Menu"
+             xmlns:local="clr-namespace:CatApiApp.Models"
+             xmlns:ViewModel="clr-namespace:CatApiApp.ViewModels"
+             x:Class="CatApiApp.Views.MenuPage">
+    <ContentPage.BindingContext>
+        <ViewModel:MenuViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="FillAndExpand" BackgroundColor="LightGray">
+            <Grid HorizontalOptions="Center" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="70"/>
+                </Grid.RowDefinitions>
+                <Image Source="{local:ImageResource CatApiApp.Images.Cat.png}" TranslationY="5" />
+                <Label Text="Cats" FontSize="Micro" VerticalOptions="End" TranslationX="-10" TextColor="Black" FontAttributes="Bold" HorizontalOptions="End"/>
+            </Grid>
+
+            <ListView ItemsSource="{Binding MenuItems}" 
+                    HasUnevenRows="True" SeparatorColor="Black" BackgroundColor="White">
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="local:HomeMenuItem">
+                        <ViewCell>
+                            <Grid Padding="10" >
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type ViewModel:MenuViewModel}},Path=ItemSelectedCommand}"
+                                                          CommandParameter="{Binding .}"/>
+                                </Grid.GestureRecognizers>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="50"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+
+                                <StackLayout>
+                                    <Image Source="{Binding Icon}"  Margin="10"/>
+                                </StackLayout>
+                                <StackLayout  Grid.Column="1" HorizontalOptions="Center">
+                                    <Label Text="{Binding Title}" TextColor="Black" TranslationY="10" HorizontalOptions="Center"  FontSize="20"/>
+                                </StackLayout>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

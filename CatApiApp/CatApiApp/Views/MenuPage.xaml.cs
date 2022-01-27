@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace CatApiApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class LitsofCats : ContentView
+    public partial class MenuPage : ContentPage
     {
-        public LitsofCats()
+        public MenuPage()
         {
             InitializeComponent();
         }
