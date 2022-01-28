@@ -8,7 +8,8 @@ namespace CatApiApp.Models
     public enum MenuItemType
     {
         Home,
-        ListCats
+        ListCats,
+        FavoriteCats
     }
     public class HomeMenuItem
     {

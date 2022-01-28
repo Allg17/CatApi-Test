@@ -13,6 +13,9 @@
   <ItemGroup>
     <None Remove="Images\AddFavorite.png" />
     <None Remove="Images\Cat.png" />
+    <None Remove="Images\CatsBreeds.png" />
+    <None Remove="Images\CatsImage.jpg" />
+    <None Remove="Images\FavCat.png" />
     <None Remove="Images\Home.png" />
     <None Remove="Images\ListCats.png" />
     <None Remove="Images\RemoveFavorite.png" />
@@ -21,6 +24,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Images\AddFavorite.png" />
     <EmbeddedResource Include="Images\Cat.png" />
+    <EmbeddedResource Include="Images\CatsBreeds.png" />
+    <EmbeddedResource Include="Images\CatsImage.jpg" />
+    <EmbeddedResource Include="Images\FavCat.png" />
     <EmbeddedResource Include="Images\Home.png" />
     <EmbeddedResource Include="Images\ListCats.png" />
     <EmbeddedResource Include="Images\RemoveFavorite.png" />
@@ -28,6 +34,7 @@
 
   <ItemGroup>
     <PackageReference Include="Acr.UserDialogs" Version="7.2.0.562" />
+    <PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="5.2.7" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="PropertyChanged.Fody" Version="3.4.0" />
     <PackageReference Include="Refit" Version="6.2.16" />
@@ -41,6 +48,9 @@
     </EmbeddedResource>
     <EmbeddedResource Update="Views\ListofCatsPage.xaml">
       <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\ListOfFavoriteCatsBreedsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\MenuPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>

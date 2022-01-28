@@ -9,10 +9,10 @@
     <ContentPage.BindingContext>
         <ViewModel:ListofCatsViewMode/>
     </ContentPage.BindingContext>
-    
+
     <ContentPage.Content>
         <StackLayout>
-            
+
             <CollectionView Margin="20,0,20,0" ItemsSource="{Binding ListOfCats}" >
                 <CollectionView.ItemsLayout>
                     <GridItemsLayout Orientation="Vertical" Span="2"/>
@@ -30,11 +30,9 @@
                                         <RowDefinition Height=".1*"/>
                                     </Grid.RowDefinitions>
 
-                                    <!--<ffimageloading:CachedImage Source="{Binding Imagen,Converter={StaticResource ImagenConverter}}" Success="CachedImage_Success"  Aspect="AspectFit" VerticalOptions="Center" HorizontalOptions="Center" RetryCount="10" DownsampleUseDipUnits="True" FadeAnimationEnabled="False" 
-                                                                     LoadingPlaceholder="LoadingImage.jpg" Error="CachedImage_Error" ErrorPlaceholder="ImageNotFound.png" CacheDuration="30"/>-->
-                                    <Image Source="{Binding image.url}" Aspect="AspectFit"  VerticalOptions="Start" Grid.Row="0"/>
+                                    <Image Source="{Binding image.url}" Aspect="AspectFit"  VerticalOptions="Start" />
 
-                                    
+
                                     <StackLayout Grid.Row="1" VerticalOptions="Start">
 
                                         <StackLayout Orientation="Horizontal">
@@ -48,14 +46,11 @@
                                                     </FormattedString>
                                                 </Label.FormattedText>
                                             </Label>
-                                            <ImageButton Source="{Binding FavoriteImage}"
+                                            <ImageButton Source="{Binding FavoriteImage,TargetNullValue={Models:ImageResource CatApiApp.Images.AddFavorite.png}}"
                                                          HorizontalOptions="EndAndExpand" HeightRequest="30" WidthRequest="30"
                                                          Command="{Binding Source={RelativeSource AncestorType=
                                                                     {x:Type ViewModel:ListofCatsViewMode}},Path=FavoriteCommand}" CommandParameter="{Binding .}"/>
                                         </StackLayout>
-                                        
-
-                                           
 
                                         <Label  TextColor="Black" HorizontalOptions="Start">
                                             <Label.FormattedText>
@@ -100,9 +95,9 @@
                                                                 CommandParameter="{Binding wikipedia_url}" />
                                                             </Span.GestureRecognizers>
                                                         </Span>
-                                                    
+
                                                     </FormattedString.Spans>
-                                                    
+
                                                 </FormattedString>
                                             </Label.FormattedText>
                                         </Label>

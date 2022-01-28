@@ -47,6 +47,6 @@ namespace CatApiApp.Models
         public string wikipedia_url { get; set; }
         public bool Favorite { get; set; }
         public string IDFavorite { get; set; }
-        public ImageSource FavoriteImage { get; set; } = ImageSource.FromResource("CatApiApp.Images.AddFavorite.png");
+        public ImageSource FavoriteImage { get; set; } /*= ImageSource.FromResource("CatApiApp.Images.AddFavorite.png");*/
     }
 }

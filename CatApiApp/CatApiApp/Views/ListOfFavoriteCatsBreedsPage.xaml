@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="List of favorite cats breeds"
+             xmlns:ViewModel="clr-namespace:CatApiApp.ViewModels"
+             xmlns:Models="clr-namespace:CatApiApp.Models"
+             x:Class="CatApiApp.Views.ListOfFavoriteCatsBreedsPage">
+    <ContentPage.BindingContext>
+        <ViewModel:FavoriteCatsBreedsViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView  BackgroundColor="Lightgray" 
+                       ItemsSource="{Binding ListFavoriteCats}"
+                       SeparatorColor="Black"  HasUnevenRows="True" >
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="Models:FavoriteCats">
+                        <ViewCell>
+                            <SwipeView>
+                                <SwipeView.LeftItems>
+                                    <SwipeItems Mode="Execute">
+
+                                        <SwipeItem Text="Remove Favorite"
+                                          CommandParameter="{Binding .}"
+                                           BackgroundColor="LightPink"
+                                           Command="{Binding Source={RelativeSource AncestorType={x:Type ViewModel:FavoriteCatsBreedsViewModel}},Path=RemoveFavorite}"/>
+                                    </SwipeItems>
+                                </SwipeView.LeftItems>
+
+                                <SwipeView.Content>
+                                    <Frame HasShadow="True" Margin="5" BorderColor="Black" >
+                                        <StackLayout >
+                                            <Image Source="{Binding image.url}" Aspect="AspectFit"/>
+                                        </StackLayout>
+                                    </Frame>
+                                </SwipeView.Content>
+                            </SwipeView>
+                            
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

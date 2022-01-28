@@ -33,6 +33,9 @@ namespace CatApiApp
                     case (int)MenuItemType.ListCats:
                         MenuPages.Add(id, new NavigationPage(new ListofCatsPage()));
                         break;
+                    case (int)MenuItemType.FavoriteCats:
+                        MenuPages.Add(id, new NavigationPage(new ListOfFavoriteCatsBreedsPage()));
+                        break;
 
                 }
             }

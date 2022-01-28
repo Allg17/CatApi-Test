@@ -28,8 +28,9 @@ namespace CatApiApp.ViewModels
         private void FillList()
         {
             MenuItems = new ObservableCollection<HomeMenuItem>();
-            MenuItems.Add(new HomeMenuItem { Id = MenuItemType.Home, Title = "Inicio", Icon = ImageSource.FromResource("CatApiApp.Images.Home.png") });
-            MenuItems.Add(new HomeMenuItem { Id = MenuItemType.ListCats, Title = "Public Cats", Icon = ImageSource.FromResource("CatApiApp.Images.ListCats.png") });
+            MenuItems.Add(new HomeMenuItem { Id = MenuItemType.Home, Title = "Home", Icon = ImageSource.FromResource("CatApiApp.Images.Home.png") });
+            MenuItems.Add(new HomeMenuItem { Id = MenuItemType.ListCats, Title = "Public Cats", Icon = ImageSource.FromResource("CatApiApp.Images.CatsBreeds.png") });
+            MenuItems.Add(new HomeMenuItem { Id = MenuItemType.FavoriteCats, Title = "Favorite Cats", Icon = ImageSource.FromResource("CatApiApp.Images.FavCat.png") });
         }
         private void Comandos()
         {
@@ -48,7 +49,7 @@ namespace CatApiApp.ViewModels
                 }
                 catch (Exception ex)
                 {
-                    throw;
+                    Acr.UserDialogs.UserDialogs.Instance.Alert(ex.Message, "Error!", "Ok");
                 }
                 finally
                 {

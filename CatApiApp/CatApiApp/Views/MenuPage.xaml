@@ -32,7 +32,7 @@
                                                           CommandParameter="{Binding .}"/>
                                 </Grid.GestureRecognizers>
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="50"/>
+                                    <ColumnDefinition Width="60"/>
                                     <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
 
@@ -40,7 +40,8 @@
                                     <Image Source="{Binding Icon}"  Margin="10"/>
                                 </StackLayout>
                                 <StackLayout  Grid.Column="1" HorizontalOptions="Center">
-                                    <Label Text="{Binding Title}" TextColor="Black" TranslationY="10" HorizontalOptions="Center"  FontSize="20"/>
+                                    <Label Text="{Binding Title}" TextColor="Black" VerticalOptions="Center" VerticalTextAlignment="Center"
+                                           TranslationY="10" HorizontalOptions="Center"  FontSize="20"/>
                                 </StackLayout>
                             </Grid>
                         </ViewCell>

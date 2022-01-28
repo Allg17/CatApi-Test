@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CatApiApp.Services;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -9,12 +10,12 @@ namespace CatApiApp
         public App()
         {
             InitializeComponent();
-
             MainPage = new MainPage();
         }
 
         protected override void OnStart()
         {
+            ApiHelper.InitializeClient();
         }
 
         protected override void OnSleep()

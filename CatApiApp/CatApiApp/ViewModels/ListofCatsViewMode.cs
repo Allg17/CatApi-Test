@@ -55,7 +55,7 @@ namespace CatApiApp.ViewModels
                 }
                 else
                 {
-                    var res = await apiresponse.PostFavorite(JsonConvert.SerializeObject(new Favourite { image_id = obj.image.id, sub_id = "your-user-123456"}));
+                    var res = await apiresponse.PostFavorite(JsonConvert.SerializeObject(new Favourite { image_id = obj.image.id, sub_id = "your-user-123456" }));
 
                     Response response = JsonConvert.DeserializeObject<Response>(res);
                     if (response.message == "SUCCESS")
@@ -68,7 +68,12 @@ namespace CatApiApp.ViewModels
             }
             catch (Exception ex)
             {
-                Acr.UserDialogs.UserDialogs.Instance.Alert(ex.Message, "Error!", "Ok");
+                if (ex.Message.Contains("400"))
+                {
+                    Acr.UserDialogs.UserDialogs.Instance.Alert("Can't duplicate favorite cats.", "Atencion!", "Ok");
+                }
+                else
+                    Acr.UserDialogs.UserDialogs.Instance.Alert(ex.Message, "Error!", "Ok");
             }
             finally
             {
@@ -100,8 +105,7 @@ namespace CatApiApp.ViewModels
             {
                 using (Acr.UserDialogs.UserDialogs.Instance.Loading("Searching..."))
                 {
-                    var res = await apiresponse.GetListofCatBreeds();
-                    ListOfCats = new ObservableCollection<CatBreeds>(res);
+                    ListOfCats = new ObservableCollection<CatBreeds>(await apiresponse.GetListofCatBreeds(100));
                 }
             }
             catch (Exception ex)
