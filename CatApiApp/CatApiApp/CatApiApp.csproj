@@ -19,6 +19,8 @@
     <None Remove="Images\Home.png" />
     <None Remove="Images\ListCats.png" />
     <None Remove="Images\RemoveFavorite.png" />
+    <None Remove="Images\thumbsDown.png" />
+    <None Remove="Images\thumbsUp.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -30,6 +32,8 @@
     <EmbeddedResource Include="Images\Home.png" />
     <EmbeddedResource Include="Images\ListCats.png" />
     <EmbeddedResource Include="Images\RemoveFavorite.png" />
+    <EmbeddedResource Include="Images\thumbsDown.png" />
+    <EmbeddedResource Include="Images\thumbsUp.png" />
   </ItemGroup>
 
   <ItemGroup>

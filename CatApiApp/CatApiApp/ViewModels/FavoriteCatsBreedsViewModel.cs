@@ -25,7 +25,7 @@ namespace CatApiApp.ViewModels
         #region Ctors
         public FavoriteCatsBreedsViewModel()
         {
-           var res = File.OpenRead(
+          
             _favoriteCatsStore = new FavoriteCatsStore();
             RemoveFavorite = new Command<FavoriteCats>(Remove);
             RefreshCommand = new Command(Refresh);

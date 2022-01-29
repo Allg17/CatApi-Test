@@ -21,7 +21,7 @@
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="Models:CatBreeds">
                         <StackLayout>
-                            <Frame BackgroundColor="White" Margin="10" HeightRequest="295" CornerRadius="20"
+                            <Frame BackgroundColor="White" Margin="10" HeightRequest="380" CornerRadius="20"
                            Padding="5" HasShadow="False">
 
                                 <Grid ColumnSpacing="0" RowSpacing="0">
@@ -101,6 +101,19 @@
                                                 </FormattedString>
                                             </Label.FormattedText>
                                         </Label>
+                                        <Label Text="Do you like the image?" TextColor="Black" TextDecorations="Underline"/>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition/>
+                                                <ColumnDefinition/>
+                                            </Grid.ColumnDefinitions>
+                                            <ImageButton Source="{Models:ImageResource CatApiApp.Images.thumbsUp.png}" 
+                                                         BackgroundColor="LightGreen" IsEnabled="{Binding IsThumbsEnable}" Command="{Binding Source={RelativeSource AncestorType=
+                                                                    {x:Type ViewModel:ListofCatsViewMode}},Path=ThumbsUpCommand}" CommandParameter="{Binding .}"/>
+                                            <ImageButton Source="{Models:ImageResource CatApiApp.Images.thumbsDown.png}" 
+                                                         Grid.Column="1" BackgroundColor="LightPink" IsEnabled="{Binding IsThumbsEnable}" Command="{Binding Source={RelativeSource AncestorType=
+                                                                    {x:Type ViewModel:ListofCatsViewMode}},Path=ThumbsUpCommand}" CommandParameter="{Binding .}" />
+                                        </Grid>
                                     </StackLayout>
                                 </Grid>
                             </Frame>

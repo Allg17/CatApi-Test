@@ -46,7 +46,13 @@ namespace CatApiApp.Models
         public Weight weight { get; set; }
         public string wikipedia_url { get; set; }
         public bool Favorite { get; set; }
+        public bool IsThumbsEnable { get; set; }
         public string IDFavorite { get; set; }
-        public ImageSource FavoriteImage { get; set; } /*= ImageSource.FromResource("CatApiApp.Images.AddFavorite.png");*/
+        public ImageSource FavoriteImage { get; set; }
+
+        public CatBreeds()
+        {
+            IsThumbsEnable = true;
+        }
     }
 }
