@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Input;
 using Xamarin.Forms;
 using System.Linq;
+using System.IO;
 
 namespace CatApiApp.ViewModels
 {
@@ -16,30 +17,38 @@ namespace CatApiApp.ViewModels
         public ObservableCollection<FavoriteCats> ListFavoriteCats { get; set; }
         private FavoriteCatsStore _favoriteCatsStore { get; set; }
         public ICommand RemoveFavorite { get; set; }
+        public ICommand RefreshCommand { get; set; }
+        public bool IsRefreshing { get; set; }
         #endregion
 
 
         #region Ctors
         public FavoriteCatsBreedsViewModel()
         {
+           var res = File.OpenRead(
             _favoriteCatsStore = new FavoriteCatsStore();
             RemoveFavorite = new Command<FavoriteCats>(Remove);
+            RefreshCommand = new Command(Refresh);
             FillList();
         }
-
 
         #endregion
 
         #region Metodos
-        private async void Remove(FavoriteCats obj)
+
+        private async void Refresh()
         {
             if (IsBusy)
                 return;
             IsBusy = true;
             try
             {
-                ListFavoriteCats.Remove(ListFavoriteCats.FirstOrDefault(x => x.id == obj.id));
-                var response = await _favoriteCatsStore.DeleteFavoriteCat(obj.image.id);
+                ListFavoriteCats.Clear();
+                IsRefreshing = true;
+                foreach (var item in await _favoriteCatsStore.GetItemsAsync())
+                {
+                    ListFavoriteCats.Add(item);
+                }
             }
             catch (Exception ex)
             {
@@ -47,7 +56,35 @@ namespace CatApiApp.ViewModels
             }
             finally
             {
-                IsBusy = true;
+                IsRefreshing = false;
+                IsBusy = false;
+            }
+        }
+        private async void Remove(FavoriteCats obj)
+        {
+            if (IsBusy)
+                return;
+            IsBusy = true;
+            try
+            {
+                var res = await Acr.UserDialogs.UserDialogs.Instance.ConfirmAsync("Are you sure to remove this?", "Atention", "Yes", "No");
+                if (res)
+                {
+                    var response = await _favoriteCatsStore.DeleteFavoriteCat(obj.id);
+                    if (response.message == "SUCCESS")
+                    {
+                        Acr.UserDialogs.UserDialogs.Instance.Alert("Successfully eliminated.", "Atention!", "Ok");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Acr.UserDialogs.UserDialogs.Instance.Alert(ex.Message, "Error!", "Ok");
+            }
+            finally
+            {
+                IsBusy = false;
+                Refresh();
             }
         }
 
@@ -55,11 +92,16 @@ namespace CatApiApp.ViewModels
         {
             try
             {
+                IsRefreshing = true;
                 ListFavoriteCats = new ObservableCollection<FavoriteCats>(await _favoriteCatsStore.GetItemsAsync());
             }
             catch (Exception ex)
             {
                 Acr.UserDialogs.UserDialogs.Instance.Alert(ex.Message, "Error!", "Ok");
+            }
+            finally
+            {
+                IsRefreshing = false;
             }
         }
         #endregion

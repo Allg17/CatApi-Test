@@ -16,7 +16,7 @@ namespace CatApiApp.Services
             {
                 System.Threading.CancellationTokenSource cancellationToken = new System.Threading.CancellationTokenSource(new TimeSpan(0, 5, 0));
 
-                string url = $"/v1/favourites/{Favorite_id}";
+                string url = $"v1/favourites/{Favorite_id}";
                 using (HttpResponseMessage respose = await ApiHelper.ApiClient.DeleteAsync(url, cancellationToken.Token))
                 {
                     if (respose.IsSuccessStatusCode)
