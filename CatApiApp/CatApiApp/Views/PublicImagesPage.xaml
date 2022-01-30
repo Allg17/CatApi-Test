@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="List of Public Images"
+             xmlns:ViewModel="clr-namespace:CatApiApp.ViewModels"
+             xmlns:Models="clr-namespace:CatApiApp.Models"
+             x:Class="CatApiApp.Views.PublicImagesPage">
+    <ContentPage.BindingContext>
+        <ViewModel:PublicImagesViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <StackLayout HorizontalOptions="StartAndExpand">
+                    <Label Text="Select a Category" TextColor="Black" VerticalOptions="End"/>
+                    <Picker ItemsSource="{Binding Categories}" SelectedItem="{Binding SelectedCategory}" VerticalOptions="Start" ItemDisplayBinding="{Binding name}" TitleColor="Black" TextColor="Black" Title="Select a Category"/>
+                </StackLayout>
+                <Button CornerRadius="10" Text="Search" Command="{Binding GetImagesCommand}" BackgroundColor="LightBlue" TextColor="Black" BorderColor="Blue"/>
+            </StackLayout>
+            <ListView  BackgroundColor="Lightgray" 
+                       RefreshCommand="{Binding RefreshCommand}"
+                       IsPullToRefreshEnabled="True"
+                       IsRefreshing="{Binding IsRefreshing}"
+                       ItemsSource="{Binding ListOfImages}"
+                       SeparatorColor="Black"  HasUnevenRows="True" >
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="Models:Image">
+                        <ViewCell>
+                            <StackLayout>
+                                <Frame HasShadow="True" Margin="5" BorderColor="Black" >
+                                    <StackLayout >
+                                        <Image Source="{Binding url}" Aspect="AspectFit"/>
+                                    </StackLayout>
+                                </Frame>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

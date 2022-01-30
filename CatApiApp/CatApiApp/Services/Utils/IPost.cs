@@ -4,10 +4,10 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CatApiApp.Services
+namespace CatApiApp.Services.Utils
 {
-    public interface IDeleteStore
+    public interface IPost<T, B>
     {
-        Task<Response> Delete(string Favorite_id);
+        Task<T> AddItemAsync(B item);
     }
 }

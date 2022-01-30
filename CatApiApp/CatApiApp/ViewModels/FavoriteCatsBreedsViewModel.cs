@@ -67,7 +67,7 @@ namespace CatApiApp.ViewModels
             {
                 if (await Acr.UserDialogs.UserDialogs.Instance.ConfirmAsync("Are you sure to remove this?", "Atention", "Yes", "No"))
                 {
-                    var response = await _favoriteCatsStore.Delete(obj.id);
+                    var response = await _favoriteCatsStore.DeleteItemAsync(obj.id);
                     if (response.message == "SUCCESS")
                     {
                         Acr.UserDialogs.UserDialogs.Instance.Alert("Successfully eliminated.", "Atention!", "Ok");

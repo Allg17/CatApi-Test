@@ -16,5 +16,13 @@ namespace CatApiApp.Services
         /// <returns></returns>
         [Get("/v1/images/{Image_id}")]
         Task<Image> GetImage(string Image_id);
+
+        /// <summary>
+        /// This endpoint bring the All the public Images
+        /// </summary>
+        /// <param name="category_ids">id of the Category of the image</param>
+        /// <returns></returns>
+        [Get("/v1/images/search")]
+        Task<List<Image>> GetAllPublicImage(string category_ids);
     }
 }

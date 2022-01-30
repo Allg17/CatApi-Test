@@ -33,6 +33,7 @@ namespace CatApiApp.ViewModels
             MenuItems.Add(new HomeMenuItem { Id = MenuItemType.ListCats, Title = "Public Cats", Icon = ImageSource.FromResource("CatApiApp.Images.CatsBreeds.png") });
             MenuItems.Add(new HomeMenuItem { Id = MenuItemType.FavoriteCats, Title = "Favorite Cats", Icon = ImageSource.FromResource("CatApiApp.Images.FavCat.png") });
             MenuItems.Add(new HomeMenuItem { Id = MenuItemType.VoteCats, Title = "Vote Cats", Icon = ImageSource.FromResource("CatApiApp.Images.Voteicon.png") });
+            MenuItems.Add(new HomeMenuItem { Id = MenuItemType.PublicImages, Title = "Public Images", Icon = ImageSource.FromResource("CatApiApp.Images.CatsBreeds.png") });
         }
         private void Comandos()
         {

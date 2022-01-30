@@ -41,6 +41,9 @@ namespace CatApiApp
                         case (int)MenuItemType.VoteCats:
                             MenuPages.Add(id, new NavigationPage(new ListVotePage()));
                             break;
+                        case (int)MenuItemType.PublicImages:
+                            MenuPages.Add(id, new NavigationPage(new PublicImagesPage()));
+                            break;
 
                     }
                 }
