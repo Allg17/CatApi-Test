@@ -23,33 +23,39 @@ namespace CatApiApp
 
         public async Task NavigateFromMenu(int id)
         {
-            if (!MenuPages.ContainsKey(id))
+            try
             {
-                switch (id)
+                if (!MenuPages.ContainsKey(id))
                 {
-                    case (int)MenuItemType.Home:
-                        MenuPages.Add(id, new NavigationPage(new HomePage()));
-                        break;
-                    case (int)MenuItemType.ListCats:
-                        MenuPages.Add(id, new NavigationPage(new ListofCatsPage()));
-                        break;
-                    case (int)MenuItemType.FavoriteCats:
-                        MenuPages.Add(id, new NavigationPage(new ListOfFavoriteCatsBreedsPage()));
-                        break;
+                    switch (id)
+                    {
+                        case (int)MenuItemType.Home:
+                            MenuPages.Add(id, new NavigationPage(new HomePage()));
+                            break;
+                        case (int)MenuItemType.ListCats:
+                            MenuPages.Add(id, new NavigationPage(new ListofCatsPage()));
+                            break;
+                        case (int)MenuItemType.FavoriteCats:
+                            MenuPages.Add(id, new NavigationPage(new ListOfFavoriteCatsBreedsPage()));
+                            break;
+                        case (int)MenuItemType.VoteCats:
+                            MenuPages.Add(id, new NavigationPage(new ListVotePage()));
+                            break;
 
+                    }
+                }
+
+                var newPage = MenuPages[id];
+
+                if (newPage != null && Detail != newPage)
+                {
+                    Detail = newPage;
+                    IsPresented = false;
                 }
             }
-
-            var newPage = MenuPages[id];
-
-            if (newPage != null && Detail != newPage)
+            catch (Exception ex)
             {
-                Detail = newPage;
-
-                if (Device.RuntimePlatform == Device.Android)
-                    await Task.Delay(100);
-
-                IsPresented = false;
+                Acr.UserDialogs.UserDialogs.Instance.Alert(ex.Message, "Error!", "Ok");
             }
         }
     }

@@ -10,7 +10,12 @@ namespace CatApiApp.Services
 {
     public class FavoriteCatsStore : IDataStore<FavoriteCats>, IDeleteStore
     {
-        public async Task<Response> DeleteFavoriteCat(string Favorite_id)
+        /// <summary>
+        /// This method delete a cat from the list of favorite.
+        /// </summary>
+        /// <param name="Favorite_id">The id of the favorite cat.</param>
+        /// <returns></returns>
+        public async Task<Response> Delete(string Favorite_id)
         {
             try
             {
@@ -45,6 +50,10 @@ namespace CatApiApp.Services
             }
         }
 
+        /// <summary>
+        /// This methods return a list of cats.
+        /// </summary>
+        /// <returns></returns>
         public async Task<IEnumerable<FavoriteCats>> GetItemsAsync()
         {
             try

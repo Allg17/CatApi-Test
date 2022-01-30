@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ViewModel="clr-namespace:CatApiApp.ViewModels"
+             xmlns:Models="clr-namespace:CatApiApp.Models"
+             xmlns:local="clr-namespace:CatApiApp.Utils"
+             Title="Voted Cats"
+             x:Class="CatApiApp.Views.ListVotePage">
+    <ContentPage.Resources>
+        <local:VotedConverter x:Key="VotedConverter" />
+    </ContentPage.Resources>
+    <ContentPage.BindingContext>
+        <ViewModel:VotesViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <CarouselView ItemsSource="{Binding ListVotes}" 
+                           ItemsUpdatingScrollMode="KeepItemsInView" 
+                          HeightRequest="700"
+                          IsScrollAnimated="False" VerticalOptions="Start">
+                <CarouselView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Horizontal"
+                           ItemSpacing="0" />
+                </CarouselView.ItemsLayout>
+                <CarouselView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame 
+                            HasShadow="True"
+                            BorderColor="DarkGray"
+                            Margin="20"
+                            IsClippedToBounds="True"
+                            CornerRadius="10"
+                            HorizontalOptions="Center"
+                            VerticalOptions="CenterAndExpand">
+                            <StackLayout BackgroundColor="LightGray" >
+                                <Image Aspect="AspectFit"   Visual="Material" 
+                                       Source="{Binding Url}"
+                                       HorizontalOptions="CenterAndExpand" VerticalOptions="Start" HeightRequest="400" />
+                                <Label Text="{Binding value,Converter={StaticResource VotedConverter}}" 
+                                       VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Green"  FontSize="70"/>
+                                <Button Text="Remove" BackgroundColor="Red" CornerRadius="10" 
+                                        Command="{Binding Source={RelativeSource AncestorType=
+                                                                    {x:Type ViewModel:VotesViewModel}},Path=DeleteVoteCommand}" CommandParameter="{Binding .}" VerticalOptions="CenterAndExpand"/>
+                            </StackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CarouselView.ItemTemplate>
+            </CarouselView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

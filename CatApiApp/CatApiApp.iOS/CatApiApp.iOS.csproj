@@ -135,8 +135,8 @@
     <PackageReference Include="Acr.UserDialogs">
       <Version>7.2.0.562</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
-    <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2337" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.1" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
@@ -144,5 +144,17 @@
       <Project>{48994E9C-BD21-41D9-8567-3D86D4F6B323}</Project>
       <Name>CatApiApp</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\thumbsDown.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\thumbsUp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\AddFavorite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\RemoveFavorite.png" />
   </ItemGroup>
 </Project>

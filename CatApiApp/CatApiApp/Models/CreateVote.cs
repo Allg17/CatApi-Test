@@ -8,9 +8,6 @@ namespace CatApiApp.Models
     {
         public int value { get; set; }
         public string sub_id { get; set; }
-        //public string created_at { get; set; }
-        //public string id { get; set; }
-        //public string country_code { get; set; }
         public string image_id { get; set; }
     }
 }

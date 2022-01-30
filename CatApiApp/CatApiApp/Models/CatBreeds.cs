@@ -43,16 +43,16 @@ namespace CatApiApp.Models
         public string vcahospitals_url { get; set; }
         public string vetstreet_url { get; set; }
         public int vocalisation { get; set; }
-        public Weight weight { get; set; }
         public string wikipedia_url { get; set; }
         public bool Favorite { get; set; }
         public bool IsThumbsEnable { get; set; }
         public string IDFavorite { get; set; }
-        public ImageSource FavoriteImage { get; set; }
+        public ImageSource FavoriteImage { get; set; } 
 
         public CatBreeds()
         {
             IsThumbsEnable = true;
+            FavoriteImage = ImageSource.FromFile("AddFavorite.png");
         }
     }
 }

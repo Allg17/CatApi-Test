@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Text.Json.Serialization;
 
 namespace CatApiApp.Models
 {
@@ -11,8 +12,7 @@ namespace CatApiApp.Models
         public string id { get; set; }
         public string image_id { get; set; }
         public string sub_id { get; set; }
+        public string Url { get; set; }
         public int value { get; set; }
-
-
     }
 }

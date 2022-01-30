@@ -1,4 +1,5 @@
 ﻿using CatApiApp.Models;
+using CatApiApp.Utils;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -31,6 +32,7 @@ namespace CatApiApp.ViewModels
             MenuItems.Add(new HomeMenuItem { Id = MenuItemType.Home, Title = "Home", Icon = ImageSource.FromResource("CatApiApp.Images.Home.png") });
             MenuItems.Add(new HomeMenuItem { Id = MenuItemType.ListCats, Title = "Public Cats", Icon = ImageSource.FromResource("CatApiApp.Images.CatsBreeds.png") });
             MenuItems.Add(new HomeMenuItem { Id = MenuItemType.FavoriteCats, Title = "Favorite Cats", Icon = ImageSource.FromResource("CatApiApp.Images.FavCat.png") });
+            MenuItems.Add(new HomeMenuItem { Id = MenuItemType.VoteCats, Title = "Vote Cats", Icon = ImageSource.FromResource("CatApiApp.Images.Voteicon.png") });
         }
         private void Comandos()
         {
@@ -43,8 +45,7 @@ namespace CatApiApp.ViewModels
                 {
                     if (ItemSelected != null)
                     {
-                        var id = (int)((HomeMenuItem)ItemSelected).Id;
-                        await RootPage.NavigateFromMenu(id);
+                        await RootPage.NavigateFromMenu((int)ItemSelected.Id);
                     }
                 }
                 catch (Exception ex)
@@ -55,7 +56,6 @@ namespace CatApiApp.ViewModels
                 {
                     IsBusy = false;
                 }
-
             });
         }
         #endregion

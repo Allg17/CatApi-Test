@@ -7,13 +7,8 @@ namespace CatApiApp.Models
 {
     public class Favourite
     {
-        [JsonIgnore]
-        public string id { get; set; }
         public string image_id { get; set; }
-   
         public string sub_id { get; set; }
-        [JsonIgnore]
-        public string created_at { get; set; }
     }
 
     public class Response

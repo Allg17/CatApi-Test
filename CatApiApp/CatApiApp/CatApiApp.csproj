@@ -21,6 +21,7 @@
     <None Remove="Images\RemoveFavorite.png" />
     <None Remove="Images\thumbsDown.png" />
     <None Remove="Images\thumbsUp.png" />
+    <None Remove="Images\Voteicon.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -34,6 +35,7 @@
     <EmbeddedResource Include="Images\RemoveFavorite.png" />
     <EmbeddedResource Include="Images\thumbsDown.png" />
     <EmbeddedResource Include="Images\thumbsUp.png" />
+    <EmbeddedResource Include="Images\Voteicon.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -42,8 +44,8 @@
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="PropertyChanged.Fody" Version="3.4.0" />
     <PackageReference Include="Refit" Version="6.2.16" />
-    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
-    <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2337" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.1" />
   </ItemGroup>
 
   <ItemGroup>
@@ -54,6 +56,9 @@
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\ListOfFavoriteCatsBreedsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\ListVotePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\MenuPage.xaml">

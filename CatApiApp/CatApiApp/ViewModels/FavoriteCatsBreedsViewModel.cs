@@ -25,7 +25,6 @@ namespace CatApiApp.ViewModels
         #region Ctors
         public FavoriteCatsBreedsViewModel()
         {
-          
             _favoriteCatsStore = new FavoriteCatsStore();
             RemoveFavorite = new Command<FavoriteCats>(Remove);
             RefreshCommand = new Command(Refresh);
@@ -35,7 +34,6 @@ namespace CatApiApp.ViewModels
         #endregion
 
         #region Metodos
-
         private async void Refresh()
         {
             if (IsBusy)
@@ -67,10 +65,9 @@ namespace CatApiApp.ViewModels
             IsBusy = true;
             try
             {
-                var res = await Acr.UserDialogs.UserDialogs.Instance.ConfirmAsync("Are you sure to remove this?", "Atention", "Yes", "No");
-                if (res)
+                if (await Acr.UserDialogs.UserDialogs.Instance.ConfirmAsync("Are you sure to remove this?", "Atention", "Yes", "No"))
                 {
-                    var response = await _favoriteCatsStore.DeleteFavoriteCat(obj.id);
+                    var response = await _favoriteCatsStore.Delete(obj.id);
                     if (response.message == "SUCCESS")
                     {
                         Acr.UserDialogs.UserDialogs.Instance.Alert("Successfully eliminated.", "Atention!", "Ok");

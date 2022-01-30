@@ -9,7 +9,8 @@ namespace CatApiApp.Models
     {
         Home,
         ListCats,
-        FavoriteCats
+        FavoriteCats,
+        VoteCats
     }
     public class HomeMenuItem
     {

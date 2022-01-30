@@ -46,7 +46,7 @@
                                                     </FormattedString>
                                                 </Label.FormattedText>
                                             </Label>
-                                            <ImageButton Source="{Binding FavoriteImage,TargetNullValue={Models:ImageResource CatApiApp.Images.AddFavorite.png}}"
+                                            <ImageButton Source="{Binding FavoriteImage}"
                                                          HorizontalOptions="EndAndExpand" HeightRequest="30" WidthRequest="30"
                                                          Command="{Binding Source={RelativeSource AncestorType=
                                                                     {x:Type ViewModel:ListofCatsViewMode}},Path=FavoriteCommand}" CommandParameter="{Binding .}"/>
@@ -107,12 +107,12 @@
                                                 <ColumnDefinition/>
                                                 <ColumnDefinition/>
                                             </Grid.ColumnDefinitions>
-                                            <ImageButton Source="{Models:ImageResource CatApiApp.Images.thumbsUp.png}" 
+                                            <ImageButton Source="thumbsUp.png" 
                                                          BackgroundColor="LightGreen" IsEnabled="{Binding IsThumbsEnable}" Command="{Binding Source={RelativeSource AncestorType=
                                                                     {x:Type ViewModel:ListofCatsViewMode}},Path=ThumbsUpCommand}" CommandParameter="{Binding .}"/>
-                                            <ImageButton Source="{Models:ImageResource CatApiApp.Images.thumbsDown.png}" 
+                                            <ImageButton Source="thumbsDown.png" 
                                                          Grid.Column="1" BackgroundColor="LightPink" IsEnabled="{Binding IsThumbsEnable}" Command="{Binding Source={RelativeSource AncestorType=
-                                                                    {x:Type ViewModel:ListofCatsViewMode}},Path=ThumbsUpCommand}" CommandParameter="{Binding .}" />
+                                                                    {x:Type ViewModel:ListofCatsViewMode}},Path=ThumbsDownCommand}" CommandParameter="{Binding .}" />
                                         </Grid>
                                     </StackLayout>
                                 </Grid>

@@ -16,7 +16,7 @@ namespace CatApiApp.ViewModels
     public class ListofCatsViewMode : NotificationObject
     {
         #region Propiedades
-        public string Sub_id { get; set; }
+        private string Sub_id { get; set; }
         public ObservableCollection<CatBreeds> ListOfCats { get; set; }
         private ICatsApi apiresponse { get; set; }
         private IVoteApi Voteapiresponse { get; set; }
@@ -59,8 +59,7 @@ namespace CatApiApp.ViewModels
             IsBusy = true;
             try
             {
-                var res = await Voteapiresponse.CreateAvote(new CreateVote { image_id = obj.image.id, value = value, sub_id = Sub_id });
-                Response response = JsonConvert.DeserializeObject<Response>(res);
+                Response response = JsonConvert.DeserializeObject<Response>(await Voteapiresponse.CreateAvote(new CreateVote { image_id = obj.image.id, value = value, sub_id = Sub_id }));
                 if (response.message == "SUCCESS")
                 {
                     obj.IsThumbsEnable = false;
@@ -89,19 +88,17 @@ namespace CatApiApp.ViewModels
                     var res = await apiresponse.DeleteFavorite(obj.IDFavorite);
                     if (res.message == "SUCCESS")
                     {
-                        obj.FavoriteImage = ImageSource.FromResource("CatApiApp.Images.AddFavorite.png");
+                        obj.FavoriteImage = ImageSource.FromFile("AddFavorite.png");
                         obj.Favorite = false;
                     }
                 }
                 else
                 {
-                    var res = await apiresponse.PostFavorite(JsonConvert.SerializeObject(new Favourite { image_id = obj.image.id, sub_id = Sub_id }));
-
-                    Response response = JsonConvert.DeserializeObject<Response>(res);
+                    Response response = JsonConvert.DeserializeObject<Response>(await apiresponse.PostFavorite(JsonConvert.SerializeObject(new Favourite { image_id = obj.image.id, sub_id = Sub_id })));
                     if (response.message == "SUCCESS")
                     {
                         obj.IDFavorite = response.id;
-                        obj.FavoriteImage = ImageSource.FromResource("CatApiApp.Images.RemoveFavorite.png");
+                        obj.FavoriteImage = ImageSource.FromFile("RemoveFavorite.png");
                         obj.Favorite = true;
                     }
                 }

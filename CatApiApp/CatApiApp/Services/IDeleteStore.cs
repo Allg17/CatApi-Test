@@ -8,6 +8,6 @@ namespace CatApiApp.Services
 {
     public interface IDeleteStore
     {
-        Task<Response> DeleteFavoriteCat(string Favorite_id);
+        Task<Response> Delete(string Favorite_id);
     }
 }
