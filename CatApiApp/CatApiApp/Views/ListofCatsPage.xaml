@@ -179,6 +179,7 @@
                                                     <ColumnDefinition.Width>
                                                         <OnPlatform x:TypeArguments="GridLength">
                                                             <On Platform="iOS">50</On>
+                                                            <On Platform="Android">40</On>
                                                         </OnPlatform>
                                                     </ColumnDefinition.Width>
                                                 </ColumnDefinition>
@@ -186,6 +187,7 @@
                                                     <ColumnDefinition.Width>
                                                         <OnPlatform x:TypeArguments="GridLength">
                                                             <On Platform="iOS">50</On>
+                                                            <On Platform="Android">40</On>
                                                         </OnPlatform>
                                                     </ColumnDefinition.Width>
                                                 </ColumnDefinition>

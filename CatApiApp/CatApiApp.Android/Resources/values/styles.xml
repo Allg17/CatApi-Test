@@ -18,7 +18,7 @@
 
 	<style name="MyTheme.Splash" parent ="Theme.AppCompat.Light.NoActionBar">
 		<item name="colorPrimary">#000000</item>
-		<item name="colorAccent">#D3D3D3</item>
+		<item name="colorAccent">#000000</item>
 		<item name="android:windowBackground">@drawable/splash_screen</item>
 		<item name="android:windowNoTitle">true</item>
 		<item name="android:windowFullscreen">true</item>
