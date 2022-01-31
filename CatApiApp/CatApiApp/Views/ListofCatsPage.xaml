@@ -175,16 +175,16 @@
                                         </Label>
                                         <Grid HorizontalOptions="CenterAndExpand">
                                             <Grid.ColumnDefinitions>
-                                                <ColumnDefinition >
+                                                <ColumnDefinition>
                                                     <ColumnDefinition.Width>
-                                                        <OnPlatform x:TypeArguments="x:Double">
+                                                        <OnPlatform x:TypeArguments="GridLength">
                                                             <On Platform="iOS">50</On>
                                                         </OnPlatform>
                                                     </ColumnDefinition.Width>
                                                 </ColumnDefinition>
                                                  <ColumnDefinition >
                                                     <ColumnDefinition.Width>
-                                                        <OnPlatform x:TypeArguments="x:Double">
+                                                        <OnPlatform x:TypeArguments="GridLength">
                                                             <On Platform="iOS">50</On>
                                                         </OnPlatform>
                                                     </ColumnDefinition.Width>
