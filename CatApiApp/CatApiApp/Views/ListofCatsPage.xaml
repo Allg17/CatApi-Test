@@ -175,8 +175,20 @@
                                         </Label>
                                         <Grid HorizontalOptions="CenterAndExpand">
                                             <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="50"/>
-                                                <ColumnDefinition  Width="50"/>
+                                                <ColumnDefinition >
+                                                    <ColumnDefinition.Width>
+                                                        <OnPlatform x:TypeArguments="x:Double">
+                                                            <On Platform="iOS">50</On>
+                                                        </OnPlatform>
+                                                    </ColumnDefinition.Width>
+                                                </ColumnDefinition>
+                                                 <ColumnDefinition >
+                                                    <ColumnDefinition.Width>
+                                                        <OnPlatform x:TypeArguments="x:Double">
+                                                            <On Platform="iOS">50</On>
+                                                        </OnPlatform>
+                                                    </ColumnDefinition.Width>
+                                                </ColumnDefinition>
                                             </Grid.ColumnDefinitions>
                                             <ImageButton Source="thumbsUp.png" 
                                                          BackgroundColor="LightGreen" HorizontalOptions="Center" IsEnabled="{Binding IsThumbsEnable}" Command="{Binding Source={RelativeSource AncestorType=
