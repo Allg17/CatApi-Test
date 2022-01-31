@@ -17,8 +17,7 @@ namespace CatApiApp.ViewModels
         public ObservableCollection<Models.Image> ListOfImages { get; set; }
         public ObservableCollection<Category> Categories { get; set; }
         public Category SelectedCategory { get; set; }
-        public bool IsRefreshing { get; set; }
-        public CategoryStore CategoryService { get; set; }
+        private CategoryStore CategoryService { get; set; }
         private IimageApi Imageapiresponse { get; set; }
         public ICommand GetImagesCommand { get; set; }
 
@@ -31,7 +30,6 @@ namespace CatApiApp.ViewModels
             string BaseUrl = "https://api.thecatapi.com";
             Imageapiresponse = RestService.For<IimageApi>(BaseUrl);
             CategoryService = new CategoryStore();
-            ListOfImages = new ObservableCollection<Models.Image>();
             Categories = new ObservableCollection<Category>();
             GetImagesCommand = new Command(Refresh);
             GetCategories();
@@ -70,12 +68,8 @@ namespace CatApiApp.ViewModels
                     return;
                 }
 
-                ListOfImages.Clear();
-                IsRefreshing = true;
-                foreach (var item in await Imageapiresponse.GetAllPublicImage(SelectedCategory.id))
-                {
-                    ListOfImages.Add(item);
-                }
+                using (Acr.UserDialogs.UserDialogs.Instance.Loading("Searching..."))
+                    ListOfImages = new ObservableCollection<Models.Image>(await Imageapiresponse.GetAllPublicImage(SelectedCategory.id));
             }
             catch (Exception ex)
             {
@@ -83,7 +77,6 @@ namespace CatApiApp.ViewModels
             }
             finally
             {
-                IsRefreshing = false;
                 IsBusy = false;
             }
         }

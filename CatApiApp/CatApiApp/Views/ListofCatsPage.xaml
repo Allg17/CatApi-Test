@@ -21,8 +21,14 @@
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="Models:CatBreeds">
                         <StackLayout>
-                            <Frame BackgroundColor="White" Margin="10" HeightRequest="380" CornerRadius="20"
+                            <Frame BackgroundColor="White" Margin="5"  CornerRadius="20"
                            Padding="5" HasShadow="False">
+                                <Frame.HeightRequest>
+                                    <OnPlatform x:TypeArguments="x:Double">
+                                        <On Platform="iOS">450</On>
+                                        <On Platform="Android">380</On>
+                                    </OnPlatform>
+                                </Frame.HeightRequest>
 
                                 <Grid ColumnSpacing="0" RowSpacing="0">
                                     <Grid.RowDefinitions>
@@ -104,8 +110,8 @@
                                         <Label Text="Do you like the image?" TextColor="Black" TextDecorations="Underline"/>
                                         <Grid>
                                             <Grid.ColumnDefinitions>
-                                                <ColumnDefinition/>
-                                                <ColumnDefinition/>
+                                                <ColumnDefinition Width="50"/>
+                                                <ColumnDefinition  Width="50"/>
                                             </Grid.ColumnDefinitions>
                                             <ImageButton Source="thumbsUp.png" 
                                                          BackgroundColor="LightGreen" IsEnabled="{Binding IsThumbsEnable}" Command="{Binding Source={RelativeSource AncestorType=

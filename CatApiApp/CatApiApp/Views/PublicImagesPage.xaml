@@ -11,32 +11,37 @@
     <ContentPage.Content>
         <StackLayout>
             <StackLayout Orientation="Horizontal">
-                <StackLayout HorizontalOptions="StartAndExpand">
-                    <Label Text="Select a Category" TextColor="Black" VerticalOptions="End"/>
-                    <Picker ItemsSource="{Binding Categories}" SelectedItem="{Binding SelectedCategory}" VerticalOptions="Start" ItemDisplayBinding="{Binding name}" TitleColor="Black" TextColor="Black" Title="Select a Category"/>
-                </StackLayout>
-                <Button CornerRadius="10" Text="Search" Command="{Binding GetImagesCommand}" BackgroundColor="LightBlue" TextColor="Black" BorderColor="Blue"/>
+                <Picker ItemsSource="{Binding Categories}" SelectedItem="{Binding SelectedCategory}"
+                        VerticalOptions="Start" ItemDisplayBinding="{Binding name}" TitleColor="Black"
+                        TextColor="Black" Title="Select a Category"/>
+
+                <Button CornerRadius="10" Text="Search" HorizontalOptions="EndAndExpand" Command="{Binding GetImagesCommand}"
+                        BackgroundColor="LightBlue" TextColor="Black" BorderColor="Blue"/>
             </StackLayout>
-            <ListView  BackgroundColor="Lightgray" 
-                       RefreshCommand="{Binding RefreshCommand}"
-                       IsPullToRefreshEnabled="True"
-                       IsRefreshing="{Binding IsRefreshing}"
-                       ItemsSource="{Binding ListOfImages}"
-                       SeparatorColor="Black"  HasUnevenRows="True" >
-                <ListView.ItemTemplate>
+
+             <CollectionView Margin="20,0,20,0" ItemsSource="{Binding ListOfImages}" >
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical" Span="1"/>
+                </CollectionView.ItemsLayout>
+
+                <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="Models:Image">
-                        <ViewCell>
-                            <StackLayout>
-                                <Frame HasShadow="True" Margin="5" BorderColor="Black" >
-                                    <StackLayout >
-                                        <Image Source="{Binding url}" Aspect="AspectFit"/>
-                                    </StackLayout>
-                                </Frame>
-                            </StackLayout>
-                        </ViewCell>
+                        <StackLayout>
+                            <Frame BackgroundColor="White" Margin="5"  CornerRadius="20"
+                           Padding="5" HasShadow="False">
+                                <Grid ColumnSpacing="0" RowSpacing="0">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+
+                                    <Image Source="{Binding url}"  Aspect="AspectFill" 
+                                           VerticalOptions="Start" />
+                                </Grid>
+                            </Frame>
+                        </StackLayout>
                     </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

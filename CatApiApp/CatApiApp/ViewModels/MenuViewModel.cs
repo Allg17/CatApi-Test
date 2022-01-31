@@ -29,11 +29,11 @@ namespace CatApiApp.ViewModels
         private void FillList()
         {
             MenuItems = new ObservableCollection<HomeMenuItem>();
-            MenuItems.Add(new HomeMenuItem { Id = MenuItemType.Home, Title = "Home", Icon = ImageSource.FromResource("CatApiApp.Images.Home.png") });
-            MenuItems.Add(new HomeMenuItem { Id = MenuItemType.ListCats, Title = "Public Cats", Icon = ImageSource.FromResource("CatApiApp.Images.CatsBreeds.png") });
-            MenuItems.Add(new HomeMenuItem { Id = MenuItemType.FavoriteCats, Title = "Favorite Cats", Icon = ImageSource.FromResource("CatApiApp.Images.FavCat.png") });
-            MenuItems.Add(new HomeMenuItem { Id = MenuItemType.VoteCats, Title = "Vote Cats", Icon = ImageSource.FromResource("CatApiApp.Images.Voteicon.png") });
-            MenuItems.Add(new HomeMenuItem { Id = MenuItemType.PublicImages, Title = "Public Images", Icon = ImageSource.FromResource("CatApiApp.Images.CatsBreeds.png") });
+            MenuItems.Add(new HomeMenuItem { Id = MenuItemType.Home, Title = "Home", Icon = ImageSource.FromFile("Home.png") });
+            MenuItems.Add(new HomeMenuItem { Id = MenuItemType.ListCats, Title = "Public Cats", Icon = ImageSource.FromFile("CatsBreeds.png") });
+            MenuItems.Add(new HomeMenuItem { Id = MenuItemType.FavoriteCats, Title = "Favorite Cats", Icon = ImageSource.FromFile("FavCat.png") });
+            MenuItems.Add(new HomeMenuItem { Id = MenuItemType.VoteCats, Title = "Vote Cats", Icon = ImageSource.FromFile("Voteicon.png") });
+            MenuItems.Add(new HomeMenuItem { Id = MenuItemType.PublicImages, Title = "Public Images", Icon = ImageSource.FromFile("CatsBreeds.png") });
         }
         private void Comandos()
         {

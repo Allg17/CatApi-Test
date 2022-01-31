@@ -19,6 +19,7 @@
                           HeightRequest="700"
                           IsScrollAnimated="False" VerticalOptions="Start">
                 <CarouselView.ItemsLayout>
+
                     <LinearItemsLayout Orientation="Horizontal"
                            ItemSpacing="0" />
                 </CarouselView.ItemsLayout>

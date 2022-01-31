@@ -1,77 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
-
-  <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DebugType>portable</DebugType>
-    <DebugSymbols>true</DebugSymbols>
-  </PropertyGroup>
-
-  <ItemGroup>
-    <None Remove="Images\AddFavorite.png" />
-    <None Remove="Images\Cat.png" />
-    <None Remove="Images\CatsBreeds.png" />
-    <None Remove="Images\CatsImage.jpg" />
-    <None Remove="Images\FavCat.png" />
-    <None Remove="Images\Home.png" />
-    <None Remove="Images\ListCats.png" />
-    <None Remove="Images\RemoveFavorite.png" />
-    <None Remove="Images\thumbsDown.png" />
-    <None Remove="Images\thumbsUp.png" />
-    <None Remove="Images\Voteicon.png" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Include="Images\AddFavorite.png" />
-    <EmbeddedResource Include="Images\Cat.png" />
-    <EmbeddedResource Include="Images\CatsBreeds.png" />
-    <EmbeddedResource Include="Images\CatsImage.jpg" />
-    <EmbeddedResource Include="Images\FavCat.png" />
-    <EmbeddedResource Include="Images\Home.png" />
-    <EmbeddedResource Include="Images\ListCats.png" />
-    <EmbeddedResource Include="Images\RemoveFavorite.png" />
-    <EmbeddedResource Include="Images\thumbsDown.png" />
-    <EmbeddedResource Include="Images\thumbsUp.png" />
-    <EmbeddedResource Include="Images\Voteicon.png" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Acr.UserDialogs" Version="7.2.0.562" />
-    <PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="5.2.7" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-    <PackageReference Include="PropertyChanged.Fody" Version="3.4.0" />
-    <PackageReference Include="Refit" Version="6.2.16" />
-    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2337" />
-    <PackageReference Include="Xamarin.Essentials" Version="1.7.1" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Update="Views\HomePage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Views\ListofCatsPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Views\ListOfFavoriteCatsBreedsPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Views\ListVotePage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Views\MenuPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Views\PublicImagesPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="Views\MenuPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </None>
-  </ItemGroup>
+	<PropertyGroup>
+		<TargetFramework>netstandard2.0</TargetFramework>
+		<ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<DebugType>portable</DebugType>
+		<DebugSymbols>true</DebugSymbols>
+	</PropertyGroup>
+	<ItemGroup>
+		<None Remove="Images\AddFavorite.png" />
+		<None Remove="Images\Cat.png" />
+		<None Remove="Images\CatsBreeds.png" />
+		<None Remove="Images\CatsImage.jpg" />
+		<None Remove="Images\FavCat.png" />
+		<None Remove="Images\Home.png" />
+		<None Remove="Images\ListCats.png" />
+		<None Remove="Images\RemoveFavorite.png" />
+		<None Remove="Images\thumbsDown.png" />
+		<None Remove="Images\thumbsUp.png" />
+		<None Remove="Images\Voteicon.png" />
+	</ItemGroup>
+	<ItemGroup>
+		<EmbeddedResource Include="Images\AddFavorite.png" />
+		<EmbeddedResource Include="Images\Cat.png" />
+		<EmbeddedResource Include="Images\CatsBreeds.png" />
+		<EmbeddedResource Include="Images\CatsImage.jpg" />
+		<EmbeddedResource Include="Images\FavCat.png" />
+		<EmbeddedResource Include="Images\Home.png" />
+		<EmbeddedResource Include="Images\ListCats.png" />
+		<EmbeddedResource Include="Images\RemoveFavorite.png" />
+		<EmbeddedResource Include="Images\thumbsDown.png" />
+		<EmbeddedResource Include="Images\thumbsUp.png" />
+		<EmbeddedResource Include="Images\Voteicon.png" />
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Acr.UserDialogs" Version="7.2.0.562" />
+		<PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="5.2.7" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+		<PackageReference Include="PropertyChanged.Fody" Version="3.4.0" />
+		<PackageReference Include="Refit" Version="6.2.16" />
+		<PackageReference Include="Xamarin.Forms" Version="5.0.0.2337" />
+		<PackageReference Include="Xamarin.Essentials" Version="1.7.1" />
+	</ItemGroup>
+	<ItemGroup>
+		<EmbeddedResource Update="Views\HomePage.xaml">
+			<Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+		</EmbeddedResource>
+		<EmbeddedResource Update="Views\ListofCatsPage.xaml">
+			<Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+		</EmbeddedResource>
+		<EmbeddedResource Update="Views\ListOfFavoriteCatsBreedsPage.xaml">
+			<Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+		</EmbeddedResource>
+		<EmbeddedResource Update="Views\ListVotePage.xaml">
+			<Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+		</EmbeddedResource>
+		<EmbeddedResource Update="Views\MenuPage.xaml">
+			<Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+		</EmbeddedResource>
+		<EmbeddedResource Update="Views\PublicImagesPage.xaml">
+			<Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+		</EmbeddedResource>
+		<EmbeddedResource Update="Views\MenuPage.xaml">
+			<Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+		</EmbeddedResource>
+		<EmbeddedResource Update="Views\MainPage.xaml">
+			<Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+		</EmbeddedResource>
+	</ItemGroup>
 </Project>
