@@ -19,7 +19,7 @@
                         BackgroundColor="LightBlue" TextColor="Black" BorderColor="Blue"/>
             </StackLayout>
 
-             <CollectionView Margin="20,0,20,0" ItemsSource="{Binding ListOfImages}" >
+            <CollectionView Margin="20,0,20,0" ItemsSource="{Binding ListOfImages}" >
                 <CollectionView.ItemsLayout>
                     <GridItemsLayout Orientation="Vertical" Span="1"/>
                 </CollectionView.ItemsLayout>

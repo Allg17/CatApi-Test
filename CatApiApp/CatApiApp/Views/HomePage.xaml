@@ -5,5 +5,5 @@
              BackgroundImageSource="{local:ImageResource CatApiApp.Images.CatsImage.jpg}"
              Title="Home"
              x:Class="CatApiApp.Views.HomePage">
- 
+
 </ContentPage>

@@ -38,7 +38,7 @@
                                     </Frame>
                                 </SwipeView.Content>
                             </SwipeView>
-                            
+
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>

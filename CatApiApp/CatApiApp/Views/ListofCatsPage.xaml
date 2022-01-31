@@ -183,7 +183,7 @@
                                                         </OnPlatform>
                                                     </ColumnDefinition.Width>
                                                 </ColumnDefinition>
-                                                 <ColumnDefinition >
+                                                <ColumnDefinition >
                                                     <ColumnDefinition.Width>
                                                         <OnPlatform x:TypeArguments="GridLength">
                                                             <On Platform="iOS">50</On>
