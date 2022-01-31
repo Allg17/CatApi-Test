@@ -34,7 +34,7 @@
                                         <RowDefinition Height="Auto"/>
                                     </Grid.RowDefinitions>
 
-                                    <Image Source="{Binding url}"  Aspect="AspectFill" 
+                                    <Image Source="{Binding url}" HeightRequest="200" WidthRequest="200" Aspect="AspectFit" 
                                            VerticalOptions="Start" />
                                 </Grid>
                             </Frame>

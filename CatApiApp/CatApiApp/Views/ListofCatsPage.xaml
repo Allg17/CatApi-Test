@@ -22,7 +22,7 @@
                     <DataTemplate x:DataType="Models:CatBreeds">
                         <StackLayout>
                             <Frame BackgroundColor="White" Margin="5"  CornerRadius="20"
-                           Padding="5" HasShadow="False">
+                           Padding="2" HasShadow="False">
                                 <Frame.HeightRequest>
                                     <OnPlatform x:TypeArguments="x:Double">
                                         <On Platform="iOS">450</On>
@@ -46,8 +46,20 @@
                                                 <Label.FormattedText>
                                                     <FormattedString>
                                                         <FormattedString.Spans>
-                                                            <Span Text="Nombre: " FontAttributes="Bold"/>
-                                                            <Span Text="{Binding name}" TextColor="Black"/>
+                                                            <Span Text="Nombre: " FontAttributes="Bold">
+                                                                <Span.FontSize>
+                                                                    <OnPlatform x:TypeArguments="x:Double">
+                                                                        <On Platform="iOS">14</On>
+                                                                    </OnPlatform>
+                                                                </Span.FontSize>
+                                                            </Span>
+                                                            <Span Text="{Binding name}" TextColor="Black">
+                                                                <Span.FontSize>
+                                                                    <OnPlatform x:TypeArguments="x:Double">
+                                                                        <On Platform="iOS">12</On>
+                                                                    </OnPlatform>
+                                                                </Span.FontSize>
+                                                            </Span>
                                                         </FormattedString.Spans>
                                                     </FormattedString>
                                                 </Label.FormattedText>
@@ -62,8 +74,20 @@
                                             <Label.FormattedText>
                                                 <FormattedString>
                                                     <FormattedString.Spans>
-                                                        <Span Text="Origin: " FontAttributes="Bold"/>
-                                                        <Span Text="{Binding origin}" TextColor="Black"/>
+                                                        <Span Text="Origin: " FontAttributes="Bold">
+                                                            <Span.FontSize>
+                                                                <OnPlatform x:TypeArguments="x:Double">
+                                                                    <On Platform="iOS">14</On>
+                                                                </OnPlatform>
+                                                            </Span.FontSize>
+                                                        </Span>
+                                                        <Span Text="{Binding origin}" TextColor="Black">
+                                                            <Span.FontSize>
+                                                                <OnPlatform x:TypeArguments="x:Double">
+                                                                    <On Platform="iOS">12</On>
+                                                                </OnPlatform>
+                                                            </Span.FontSize>
+                                                        </Span>
                                                     </FormattedString.Spans>
                                                 </FormattedString>
                                             </Label.FormattedText>
@@ -72,8 +96,20 @@
                                             <Label.FormattedText>
                                                 <FormattedString>
                                                     <FormattedString.Spans>
-                                                        <Span Text="Temperament: " FontAttributes="Bold"/>
-                                                        <Span Text="{Binding temperament}"/>
+                                                        <Span Text="Temperament: " FontAttributes="Bold">
+                                                            <Span.FontSize>
+                                                                <OnPlatform x:TypeArguments="x:Double">
+                                                                    <On Platform="iOS">14</On>
+                                                                </OnPlatform>
+                                                            </Span.FontSize>
+                                                        </Span>
+                                                        <Span Text="{Binding temperament}">
+                                                            <Span.FontSize>
+                                                                <OnPlatform x:TypeArguments="x:Double">
+                                                                    <On Platform="iOS">12</On>
+                                                                </OnPlatform>
+                                                            </Span.FontSize>
+                                                        </Span>
                                                     </FormattedString.Spans>
                                                 </FormattedString>
                                             </Label.FormattedText>
@@ -83,8 +119,20 @@
                                             <Label.FormattedText>
                                                 <FormattedString>
                                                     <FormattedString.Spans>
-                                                        <Span Text="Description: " FontAttributes="Bold"/>
-                                                        <Span Text="{Binding description}" />
+                                                        <Span Text="Description: " FontAttributes="Bold">
+                                                            <Span.FontSize>
+                                                                <OnPlatform x:TypeArguments="x:Double">
+                                                                    <On Platform="iOS">14</On>
+                                                                </OnPlatform>
+                                                            </Span.FontSize>
+                                                        </Span>
+                                                        <Span Text="{Binding description}" >
+                                                            <Span.FontSize>
+                                                                <OnPlatform x:TypeArguments="x:Double">
+                                                                    <On Platform="iOS">12</On>
+                                                                </OnPlatform>
+                                                            </Span.FontSize>
+                                                        </Span>
                                                     </FormattedString.Spans>
                                                 </FormattedString>
                                             </Label.FormattedText>
@@ -93,13 +141,24 @@
                                             <Label.FormattedText>
                                                 <FormattedString>
                                                     <FormattedString.Spans>
-                                                        <Span Text="To learn More.  " FontAttributes="Bold"/>
+                                                        <Span Text="To learn More.  " FontAttributes="Bold">
+                                                            <Span.FontSize>
+                                                                <OnPlatform x:TypeArguments="x:Double">
+                                                                    <On Platform="iOS">13</On>
+                                                                </OnPlatform>
+                                                            </Span.FontSize>
+                                                        </Span>
                                                         <Span Text="Click Here" TextDecorations="Underline" TextColor="Blue" >
                                                             <Span.GestureRecognizers>
                                                                 <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType=
                                                                     {x:Type ViewModel:ListofCatsViewMode}},Path=TabCommand}"
                                                                 CommandParameter="{Binding wikipedia_url}" />
                                                             </Span.GestureRecognizers>
+                                                            <Span.FontSize>
+                                                                <OnPlatform x:TypeArguments="x:Double">
+                                                                    <On Platform="iOS">12</On>
+                                                                </OnPlatform>
+                                                            </Span.FontSize>
                                                         </Span>
 
                                                     </FormattedString.Spans>
@@ -107,17 +166,23 @@
                                                 </FormattedString>
                                             </Label.FormattedText>
                                         </Label>
-                                        <Label Text="Do you like the image?" TextColor="Black" TextDecorations="Underline"/>
-                                        <Grid>
+                                        <Label Text="Do you like the image?" TextColor="Black" TextDecorations="Underline">
+                                            <Label.FontSize>
+                                                <OnPlatform x:TypeArguments="x:Double">
+                                                    <On Platform="iOS">14</On>
+                                                </OnPlatform>
+                                            </Label.FontSize>
+                                        </Label>
+                                        <Grid HorizontalOptions="CenterAndExpand">
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="50"/>
                                                 <ColumnDefinition  Width="50"/>
                                             </Grid.ColumnDefinitions>
                                             <ImageButton Source="thumbsUp.png" 
-                                                         BackgroundColor="LightGreen" IsEnabled="{Binding IsThumbsEnable}" Command="{Binding Source={RelativeSource AncestorType=
+                                                         BackgroundColor="LightGreen" HorizontalOptions="Center" IsEnabled="{Binding IsThumbsEnable}" Command="{Binding Source={RelativeSource AncestorType=
                                                                     {x:Type ViewModel:ListofCatsViewMode}},Path=ThumbsUpCommand}" CommandParameter="{Binding .}"/>
                                             <ImageButton Source="thumbsDown.png" 
-                                                         Grid.Column="1" BackgroundColor="LightPink" IsEnabled="{Binding IsThumbsEnable}" Command="{Binding Source={RelativeSource AncestorType=
+                                                         Grid.Column="1" BackgroundColor="LightPink" HorizontalOptions="End" IsEnabled="{Binding IsThumbsEnable}" Command="{Binding Source={RelativeSource AncestorType=
                                                                     {x:Type ViewModel:ListofCatsViewMode}},Path=ThumbsDownCommand}" CommandParameter="{Binding .}" />
                                         </Grid>
                                     </StackLayout>
