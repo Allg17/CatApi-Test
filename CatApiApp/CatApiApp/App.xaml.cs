@@ -15,7 +15,7 @@ namespace CatApiApp
 
         protected override void OnStart()
         {
-            ApiHelper.InitializeClient();
+            ApiHelper.InitializeClient(); 
         }
 
         protected override void OnSleep()
